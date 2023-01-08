@@ -2,11 +2,11 @@
 Edit and Run Maya scripts IN Emacs
 
 - Evaluates all or part of an Emacs buffer containing MEL or Python in
-  [[https://en.wikipedia.org/wiki/Autodesk_Maya][Maya]]. An alternative to the Maya Script Editor.
-- Provides a prompt in a separate buffer for one-line commands.
+  [[https://en.wikipedia.org/wiki/Autodesk_Maya][Maya]].
+- Provides a separate buffer for interactive commands.
 - Sends the output from Maya back to the Emacs buffer.
 
-Tested with Maya 2018 on Linux.
+Tested with Maya 2018 + 2020 on Linux.
 
 * Installation
 
@@ -22,14 +22,14 @@ Tested with Maya 2018 on Linux.
   Add =~/dev/ermine/maya= (or wherever you cloned the repo) to the
   =MAYA_MODULE_PATH=.
 
-  This can either be done from the [[https://knowledge.autodesk.com/support/maya/learn-explore/caas/CloudHelp/cloudhelp/2018/ENU/Maya-EnvVar/files/GUID-8EFB1AC1-ED7D-4099-9EEE-624097872C04-htm.html][Maya.env]] in
+  This can be done either from the [[https://knowledge.autodesk.com/support/maya/learn-explore/caas/CloudHelp/cloudhelp/2018/ENU/Maya-EnvVar/files/GUID-8EFB1AC1-ED7D-4099-9EEE-624097872C04-htm.html][Maya.env]] in
   =$MAYA_APP_DIR/<version>/Maya.env=
 
   #+BEGIN_EXAMPLE
   MAYA_MODULE_PATH=/home/YOUR_USER/dev/ermine/maya
   #+END_EXAMPLE
 
-  Or via the shell:
+  or the shell:
 
   #+BEGIN_SRC sh
   env MAYA_MODULE_PATH=$HOME/dev/ermine/maya maya2018
