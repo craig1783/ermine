@@ -1,16 +1,13 @@
 
 Edit and Run Maya scripts IN Emacs
 
-- Evaluates all or part of an Emacs buffer containing MEL or Python in
-  [[https://en.wikipedia.org/wiki/Autodesk_Maya][Maya]].
-- Provides a separate buffer for interactive commands.
-- Sends the output from Maya back to the Emacs buffer.
+- Evaluates an Emacs buffer containing MEL or Python in [[https://en.wikipedia.org/wiki/Autodesk_Maya][Maya]]
+- Provides a separate comint buffer for interactive commands, and
+  receives the output from Maya
 
 Tested with Maya 2018 + 2020 on Linux.
 
 * Installation
-
-  Clone the repo somewhere, e.g.
 
   #+BEGIN_SRC sh
     cd ~/dev
@@ -19,11 +16,7 @@ Tested with Maya 2018 + 2020 on Linux.
 
 ** Maya installation
 
-  Add =~/dev/ermine/maya= (or wherever you cloned the repo) to the
-  =MAYA_MODULE_PATH=.
-
-  This can be done either from the [[https://knowledge.autodesk.com/support/maya/learn-explore/caas/CloudHelp/cloudhelp/2018/ENU/Maya-EnvVar/files/GUID-8EFB1AC1-ED7D-4099-9EEE-624097872C04-htm.html][Maya.env]] in
-  =$MAYA_APP_DIR/<version>/Maya.env=
+  Update =MAYA_MODULE_PATH=, either from [[https://knowledge.autodesk.com/support/maya/learn-explore/caas/CloudHelp/cloudhelp/2018/ENU/Maya-EnvVar/files/GUID-8EFB1AC1-ED7D-4099-9EEE-624097872C04-htm.html][Maya.env]] (=$MAYA_APP_DIR/<version>/Maya.env=)
 
   #+BEGIN_EXAMPLE
   MAYA_MODULE_PATH=/home/YOUR_USER/dev/ermine/maya
@@ -35,22 +28,20 @@ Tested with Maya 2018 + 2020 on Linux.
   env MAYA_MODULE_PATH=$HOME/dev/ermine/maya maya2018
   #+END_SRC
 
-  When you run maya in GUI mode the server will start from a
+  When you run Maya in GUI mode the server will start from a
   background thread, waiting for Emacs to connect on port 8666. It's
   not started in batch mode.
 
 ** Emacs installation
 
-  Add this to your [[https://www.gnu.org/software/emacs/manual/html_node/emacs/Init-File.html][init.el]] changing the ~load-path~ to wherever you
-  cloned the repo.
+  Update ~load-path~ in your [[https://www.gnu.org/software/emacs/manual/html_node/emacs/Init-File.html][init.el]]:
 
   #+BEGIN_SRC emacs-lisp
     (add-to-list 'load-path "~/dev/ermine/emacs")
     (require 'ermine)
   #+END_SRC
 
-  You may have to set =python-shell-interpreter= if the python
-  interpreter on your system is not the default, e.g. on Ubuntu 20:
+  You may have to set =python-shell-interpreter=, e.g. on Ubuntu 20:
 
   #+BEGIN_SRC emacs-lisp
     (setq-default python-shell-interpreter "python3")
@@ -59,14 +50,14 @@ Tested with Maya 2018 + 2020 on Linux.
 * How to use
 
   - Run maya
-  - For MEL:
-    - Optionally open a =.mel= file in Emacs
-    - Run =M-x ermine-mel-connect= to get a MEL prompt in the other
-      window connected to maya.
-  - For Python:
-    - Optionally open a =.py= file in Emacs
-    - Run =M-x ermine-python-connect= to get a Python prompt in the
-      other window connected to maya.
+  - MEL:
+    - Open a =.mel= file in Emacs
+    - =M-x ermine-mel-connect= to get a MEL prompt in the other
+      window connected to Maya
+  - Python:
+    - Open a =.py= file in Emacs
+    - =M-x ermine-python-connect= to get a Python prompt in the
+      other window connected to Maya
 
 ** Key bindings
 
