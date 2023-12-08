@@ -5,13 +5,13 @@ Edit and Run Maya scripts IN Emacs
 - Provides a separate comint buffer for interactive commands, and
   receives the output from Maya
 
-Tested with Maya 2018 + 2020 on Linux.
+Tested with Maya 2020 on Linux.
 
 * Installation
 
   #+BEGIN_SRC sh
     cd ~/dev
-    git clone https://codeberg.org/acgir/ermine.git
+    git clone URL_OF_THIS_REPO
   #+END_SRC
 
 ** Maya installation
